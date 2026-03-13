@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rainier Therapy Billing</title>
+  <meta name="description" content="Rainier Therapy Billing provides billing support and revenue cycle services for mental health practices." />
+  <style>
+    :root{
+      --bg:#0b1220;
+      --card:#111a2e;
+      --text:#e8eefc;
+      --muted:#b9c6e6;
+      --accent:#7aa7ff;
+      --border:rgba(255,255,255,.10);
+      --shadow: 0 12px 30px rgba(0,0,0,.35);
+      --radius:16px;
+      --max: 980px;
+      --pad: 20px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background: radial-gradient(1000px 600px at 20% 0%, rgba(122,167,255,.25), transparent 60%),
+                  radial-gradient(900px 500px at 80% 10%, rgba(122,167,255,.18), transparent 60%),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.55;
+    }
+    a{color:var(--accent); text-decoration:none}
+    a:hover{text-decoration:underline}
+    header{
+      padding: 54px var(--pad) 22px;
+    }
+    .wrap{max-width:var(--max); margin:0 auto}
+    .topbar{
+      display:flex; gap:16px; align-items:center; justify-content:space-between;
+      padding: 14px 0 0;
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px;
+      font-weight:700; letter-spacing:.2px;
+    }
+    .logo{
+      width:40px; height:40px; border-radius:12px;
+      background: linear-gradient(135deg, rgba(122,167,255,.95), rgba(122,167,255,.35));
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+    nav a{
+      margin-left:14px;
+      font-weight:600;
+      color:var(--muted);
+    }
+    nav a:hover{color:var(--text)}
+    .hero{
+      margin-top: 26px;
+      display:grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap: 18px;
+      align-items:stretch;
+    }
+    .card{
+      background: rgba(17,26,46,.92);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 22px;
+      backdrop-filter: blur(10px);
+    }
+    h1{
+      margin:0 0 10px;
+      font-size: clamp(28px, 4vw, 44px);
+      line-height: 1.1;
+    }
+    .sub{
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+    .pillrow{display:flex; flex-wrap:wrap; gap:10px; margin-top:10px}
+    .pill{
+      display:inline-flex; align-items:center;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.04);
+      color: var(--muted);
+      font-weight:600;
+      font-size:.92rem;
+    }
+    .cta{
+      display:flex; flex-wrap:wrap; gap:12px; margin-top: 18px;
+    }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding: 10px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: rgba(122,167,255,.16);
+      color: var(--text);
+      font-weight:700;
+      text-decoration:none;
+    }
+    .btn:hover{background: rgba(122,167,255,.24); text-decoration:none}
+    .btn.secondary{
+      background: rgba(255,255,255,.06);
+      color: var(--muted);
+    }
+    .btn.secondary:hover{background: rgba(255,255,255,.09); color:var(--text)}
+    main{padding: 0 var(--pad) 46px}
+    section{margin-top: 18px}
+    h2{margin:0 0 10px; font-size: 1.25rem}
+    ul{margin:10px 0 0 18px; color:var(--muted)}
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    .small{font-size:.95rem; color:var(--muted)}
+    .notice{
+      border-left: 4px solid rgba(122,167,255,.7);
+      padding: 10px 12px;
+      background: rgba(122,167,255,.08);
+      border-radius: 12px;
+      color: var(--muted);
+    }
+    footer{
+      padding: 26px var(--pad) 36px;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      background: rgba(0,0,0,.10);
+    }
+    .footgrid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      align-items:start;
+    }
+    .kvs{
+      display:grid;
+      grid-template-columns: 140px 1fr;
+      gap: 8px 10px;
+      margin-top: 6px;
+      color: var(--muted);
+      font-size:.95rem;
+    }
+    .kvs div:nth-child(odd){color:var(--text); font-weight:700}
+    @media (max-width: 860px){
+      .hero{grid-template-columns: 1fr}
+      .grid{grid-template-columns: 1fr}
+      .footgrid{grid-template-columns:1fr}
+      nav{display:none}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <div class="topbar">
+        <div class="brand">
+          <div class="logo" aria-hidden="true"></div>
+          <div>Rainier Therapy Billing</div>
+        </div>
+        <nav aria-label="Primary">
+          <a href="#services">Services</a>
+          <a href="#contact">Contact</a>
+          <a href="#privacy">Privacy</a>
+        </nav>
+      </div>
+
+      <div class="hero">
+        <div class="card">
+          <h1>Billing support for mental health practices.</h1>
+          <p class="sub">
+            Rainier Therapy Billing helps therapy and behavioral health providers streamline claims, reduce denials,
+            and improve cash flow — with reliable, compliant workflows.
+          </p>
+
+          <div class="pillrow" aria-label="Highlights">
+            <span class="pill">Insurance claim follow-up</span>
+            <span class="pill">Patient balances</span>
+            <span class="pill">Denials & appeals</span>
+            <span class="pill">Payment posting & reconciliation</span>
+            <span class="pill">Reporting & cleanup</span>
+          </div>
+
+          <div class="cta">
+            <a class="btn" href="#contact">Request info</a>
+            <a class="btn secondary" href="#privacy">Privacy & SMS policy</a>
+          </div>
+
+          <p class="small" style="margin-top:14px">
+            Note: We do not provide clinical services. We provide billing and administrative support to practices.
+          </p>
+        </div>
+
+        <div class="card">
+          <h2>Who we help</h2>
+          <ul>
+            <li>Solo providers and group practices</li>
+            <li>Therapists, counselors, and PMHNP practices</li>
+            <li>Practices seeking tighter revenue cycle processes</li>
+          </ul>
+
+          <div style="height:12px"></div>
+
+          <div class="notice">
+            <strong style="color:var(--text)">Text messaging:</strong>
+            We may send operational texts (e.g., billing questions, portal reminders) to clients of supported practices
+            only when consent has been provided. Reply <strong style="color:var(--text)">STOP</strong> to opt out.
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap">
+      <section id="services" class="card">
+        <h2>Services</h2>
+        <div class="grid">
+          <div>
+            <h3 style="margin:0 0 6px">Claims & denials</h3>
+            <p class="small" style="margin:0">
+              Eligibility review, claim status follow-up, denial analysis, and appeals support.
+            </p>
+          </div>
+          <div>
+            <h3 style="margin:0 0 6px">Patient billing</h3>
+            <p class="small" style="margin:0">
+              Statements, portal support, payment plans, and patient balance reconciliation.
+            </p>
+          </div>
+          <div>
+            <h3 style="margin:0 0 6px">Reporting & cleanup</h3>
+            <p class="small" style="margin:0">
+              A/R tracking, unpaid claims dashboards, and monthly visibility into risk and collections.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="card">
+        <h2>Contact</h2>
+        <p class="small">
+          Email is the fastest way to reach us. Please include your practice name, state(s) of operation,
+          approximate monthly claim volume, and the platform you use (e.g., SimplePractice, TherapyNotes).
+        </p>
+
+        <!-- Replace the email address and phone number below -->
+        <div class="kvs" role="list">
+          <div role="listitem">Email</div>
+          <div role="listitem"><a href="mailto:info@rainiertherapybilling.com">info@rainiertherapybilling.com</a></div>
+
+ 		<div role="listitem">Phone</div>
+		<div role="listitem">
+  			<strong><a href="tel:+14252438972">(425) 243-8972</a></strong> (business line)
+	</div>
+
+          <div role="listitem">Service area</div>
+          <div role="listitem">United States</div>
+        </div>
+
+        <div style="height:14px"></div>
+        <div class="notice">
+          <strong style="color:var(--text)">If you are a patient:</strong>
+          Please contact your provider/practice directly. Rainier Therapy Billing supports practices and cannot
+          discuss clinical care.
+        </div>
+      </section>
+
+      <section id="privacy" class="card">
+        <h2>Privacy & SMS Policy</h2>
+        <p class="small">
+          This page is provided to explain how Rainier Therapy Billing handles information and messaging.
+          Practices we support may have additional policies and a patient portal with separate terms.
+        </p>
+
+        <h3 style="margin:16px 0 6px">Information we collect</h3>
+        <p class="small" style="margin:0">
+          We may receive contact and billing-related information from the practices we support, including names,
+          phone numbers, email addresses, appointment billing details, and claim/payment status information.
+        </p>
+
+        <h3 style="margin:16px 0 6px">How we use information</h3>
+        <ul>
+          <li>To perform billing and administrative services for supported practices</li>
+          <li>To follow up on claims, denials, payments, and balances</li>
+          <li>To communicate operationally with practice staff and (when authorized) patients/clients</li>
+        </ul>
+
+        <h3 style="margin:16px 0 6px">Text messaging (SMS)</h3>
+        <p class="small" style="margin:0">
+          We may send SMS messages for operational purposes (e.g., billing questions, payment reminders, portal reminders)
+          when the recipient has provided consent to the practice and/or to us. Message frequency varies.
+          Message and data rates may apply.
+        </p>
+        <ul>
+          <li><strong style="color:var(--text)">Opt-out:</strong> Reply <strong style="color:var(--text)">STOP</strong> to unsubscribe.</li>
+          <li><strong style="color:var(--text)">Help:</strong> Reply <strong style="color:var(--text)">HELP</strong> or email us for assistance.</li>
+          <li><strong style="color:var(--text)">Consent:</strong> Consent is not a condition of purchasing services.</li>
+        </ul>
+
+        <h3 style="margin:16px 0 6px">Data sharing</h3>
+        <p class="small" style="margin:0">
+          We do not sell personal information. Information may be shared only as necessary to provide services
+          (e.g., with payers, clearinghouses, or software vendors used by the supported practice) and as required by law.
+        </p>
+
+        <h3 style="margin:16px 0 6px">Security</h3>
+        <p class="small" style="margin:0">
+          We use reasonable administrative, technical, and physical safeguards appropriate to the services provided.
+          Do not send sensitive medical details via standard email or SMS; use the supported practice’s patient portal when available.
+        </p>
+
+        <h3 style="margin:16px 0 6px">Contact</h3>
+        <p class="small" style="margin:0">
+          Questions about this policy: <a href="mailto:privacy@rainiertherapybilling.com">privacy@rainiertherapybilling.com</a>
+        </p>
+
+        <p class="small" style="margin-top:14px">
+          <em>Last updated:</em> February 25, 2026
+        </p>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="footgrid">
+        <div>
+          <div class="brand" style="margin-bottom:8px">
+            <div class="logo" aria-hidden="true" style="width:34px;height:34px;border-radius:12px"></div>
+            <div>Rainier Therapy Billing</div>
+          </div>
+          <div class="small">Billing support and revenue cycle services for therapy and behavioral health practices.</div>
+        </div>
+
+        <div>
+          <div class="small"><strong style="color:var(--text)">Quick links</strong></div>
+          <div class="small" style="margin-top:6px">
+            <a href="#services">Services</a> ·
+            <a href="#contact">Contact</a> ·
+            <a href="#privacy">Privacy</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="small" style="margin-top:18px; opacity:.9">
+        © <span id="year"></span> Rainier Therapy Billing. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Update footer year automatically
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
